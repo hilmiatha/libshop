@@ -13,7 +13,7 @@ Soal :
 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 Jawab :
-1. Untuk membuat projek Django yang baru diperlukan beberapa step di bawah
+1. A. Untuk membuat projek Django yang baru diperlukan beberapa step di bawah
    * Saya membuat direktori lokal baru bernama libshop untuk keperluan proyek saya
    * Untuk membuat proyek Django yang baru diperlukan untuk membuat _Virtual Environment_ agar direktori tersebut terisolasi dan _dependencies_ tidak bertabrakan satu sama lain dengan versi lain di device saya. Caranya dengan membuka terminal sesuai dengan direktori yang       saya buat kemudian masukan line
      ```
@@ -33,5 +33,9 @@ Jawab :
      ALLOWED_HOSTS = ["*"]
      ```
    * Lalu saya menambahkan file `.gitignore` dikarenakan terdapat berkas - berkas yang tidak perlu dilacak oleh git
-2. 
+B. Untuk membuat aplikasi `main` kembali ke terminal dengan _Virtual Environtment_ dan jalankan command `python manage.py startapp main`. setelah itu akan terbuat direktori aplikasi bernama main `main`. Tambahkan aplikasi    di variabel `INSTALLED APPS` pada `settings.py` yang berada di direktori proyek `libshop`. Tambahkan direktori `templates` pada direktori main dan tambahkan file `main.html` di dalam folder tersebut. File html tersebut    digunakan untuk mengatur tampilan aplikasi main pada web aplikasi.
+C. Untuk melakukan routing proyek diperlukan  step di bawah
+   * untuk mengonfigurasi routing aplikasi pada proyek kita membuka file `urls.py` pada direktori proyek `libshop` kemudian mengimpor fungsi `include` dari `django.urls` dan tambahkan path menuju tampilan main      pada        variabel `urlpattern` yaitu `path('main/', include('main.urls'))`
+D. 
+   
      
