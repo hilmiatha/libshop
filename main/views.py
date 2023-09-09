@@ -3,11 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 def show_main(request):
     context = {
-        'name': 'Dilan 1990',
-        'price': 'Rp.54.000',
-        'amount':'10',
-        'description':'Buku romantis anak SMA',
-        'genre':'Romance'
+        'name': 'Hilmi Atha Putra',
+        'app_name': 'LibShop',
+        'class' : 'PBP B'
     }
 
     return render(request, "main.html", context)
