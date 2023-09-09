@@ -70,5 +70,14 @@ G. Untuk mendeploy aplikasi baru saya ke adaptable pertama saya harus membuat re
 Song kosong
 
 ## **NOMOR 3**
-   
-     
+
+_Virtual Environment_ sangat dianjurkan untuk digunakan saat kita ingin membuat proyek Django dikarenakan berguna untuk mengisolasi _package_ dan _dependency_. Hal itu diperlukan dikarenakan jika kita memiliki banyak proyek, masing - masing proyek akan terisolasi dan 
+tidak berhubungan satu sama lain. Misalkan kita ingin mengupdate salah satu _depedency_ pada suatu proyek maka _depedency_ tersebut pada versi lain tidak akan ikut ter-update sehingga akan terhindar dari konflik antar proyek django
+
+Kita bisa membuat proyek Django tanpa _virtual environment_ namun seperti yang dikatakan di atas, sangat tidak direkomendasikan dikarenakan bisa memicu konflik antar proyek django. contohnya adalah jika kita mempunyai proyek A yang menggunakan gunicorn versi 21.0.0,
+dan kita ingin membuat proyek b yang menggunakan gunicorn versi terbaru yaitu 21.2.0, jika kita menginstall tanpa _virtual environment_, versi gunicorn pada proyek A akan berubah juga ke versi 21.2.0. _Virtual environtment_ sangat berguna untuk mengatur depedency antar 
+proyek
+
+
+## **NOMOR 4**
+
