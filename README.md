@@ -2,8 +2,8 @@
 # libshop
 Singkatan dari Library Shop
 
-Tugas 2 PBP 
-**Hilmi Atha Putra (2206830050) - PBP B**
+# Tugas 2 PBP 
+# **Hilmi Atha Putra (2206830050) - PBP B**
 # [Link menuju LibShop](https://libshop.adaptable.app/main/)
 
 Soal :
@@ -13,7 +13,8 @@ Soal :
 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 
 Jawab :
-1. A. Untuk membuat projek Django yang baru diperlukan beberapa step di bawah
+## **NOMOR 1**
+A. Untuk membuat projek Django yang baru diperlukan beberapa step di bawah
    * Saya membuat direktori lokal baru bernama libshop untuk keperluan proyek saya
    * Untuk membuat proyek Django yang baru diperlukan untuk membuat _Virtual Environment_ agar direktori tersebut terisolasi dan _dependencies_ tidak bertabrakan satu sama lain dengan versi lain di device saya. Caranya dengan membuka terminal sesuai
      dengan direktori yang saya buat kemudian masukan line
@@ -46,6 +47,28 @@ C. Untuk melakukan routing proyek diperlukan  step di bawah
      `path('main/',include('main.urls'))`
 
 
-D. 
+D. Membuat model bernama `Item` di file `models.py`. pada model `item` terdapat beberapa atribut yaitu :
+  * name
+  * date_added
+  * price
+  * amount
+  * description
+  * genre
+
+
+E. Di dalam `views.py` yang berada di direktori aplikasi `main` saya tambahkan fungsi `show_main` dengan _context_ yang berisi nama aplikasi, nama saya, dan kelas PBP saya. Pada file `main.html` saya bisa mengakses isi dari _context_. contohnya jika saya ingin mengambil
+nama, saya menulis `{{name}}` di file `main.html`
+
+F. Untuk membuat routing pada aplikasi `main` saya membuat file python baru yaitu `urls.py` pada direktori aplikasi `main`. Di dalam file tersebut import `path` dari `django.urls` dan import `show_main` dari `main.views`, kemudian buat variable appname yang diisi 
+`'main'` dan buat list bernama `urlpattern` dan isi dengan `path('', show_main, name='show_main')`
+
+G. Untuk mendeploy aplikasi baru saya ke adaptable pertama saya harus membuat repositori baru di github kemudian hubungkan repositori lokal `libshop` dengan repositori github. Setelah itu lakukan add, commit, dan push. Terakhir, saya mendeploy aplikasi ke adaptable 
+
+
+## **NOMOR 2**
+
+Song kosong
+
+## **NOMOR 3**
    
      
