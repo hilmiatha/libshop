@@ -81,3 +81,28 @@ proyek
 
 ## **NOMOR 4**
 
+MVC, MVT, dan MVVM merupakan pola arsitektur yang umum digunakan pada pengembangan web dan aplikasi ponsel. berikut merupakan penjelasan mengenai ketiganya dan perbedaan - perbedaannya.
+* MVC
+  
+  MVC merupakan singkatan dari Model View Controller. Model merupakan komponen yang mengatur data dan logika dari aplikasi atau web. Model juga menghubungkan aplikasi atau web dengan database. View merupakan komponen yang mengatur tampilan yang akan dilihat oleh
+  pengguna. Terakhir, Controller adalah komponen yang mengatur hubungan antar Model dan View, memproses permintaan dari pengguna lalu berinteraksi dengan Model dan mengubah View
+
+* MVT
+
+  MVT merupakan singkatan dari Model View Template. Model merupakan komponen yang mengatur segala data dan logika inti dari aplikasi atau web. View pada MVT bertindak mirip seperti controller, mengambil data dari model dan mengatur bagaimana data tersebut ditampilkan.
+  Template merupakan representasi visual dari aplikasi atau web (visual yang terlihat oleh pengguna)
+
+* MVVM
+
+  MVVM merupakan singkatan dari Model View ViewModel. Model merupakan komponen yang mengatur data dan logika inti. View mengatur visual yang akan dilihat pengguna. Dan terakhir, ViewModel berguna untuk _data binding_ untuk menyinkornkan penyajian fungsi dan data ke
+  View serta pembaruan Model.
+
+* Perbedaan
+
+MVC dan MVT mirip namun pada MVT, View memiliki tugas yang mirip dengan controller untuk mengatur pengambilan data dan pada MVT terdapat komponen Template untuk menampilkan visual ke pengguna. Sedangkan pada MVVM lebih berfokus pada _data binding_, ViewModel pada MVVM
+mengambil data dari Model dan mengubahnya menjadi format yang lebih mudah untuk dibaca oleh View. MVC dan MVT umum digunakan untuk kebanyakan aplikasi atau web sedangkan pada MVVM digunakan untuk aplikasi dengan UI yang lebih kompleks.
+
+
+## **BONUS**
+  
+
