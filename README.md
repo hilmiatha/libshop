@@ -104,5 +104,6 @@ mengambil data dari Model dan mengubahnya menjadi format yang lebih mudah untuk 
 
 
 ## **BONUS**
-  
+
+Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru yaitu tes model untuk mengecek apakah model yang dibuat bekerja dengan baik atau tidak
 
