@@ -67,7 +67,11 @@ G. Untuk mendeploy aplikasi baru saya ke adaptable pertama saya harus membuat re
 
 ## **NOMOR 2**
 
-Song kosong
+![image](https://github.com/hilmiatha/libshop/assets/108039453/38b14fc4-afa8-4dda-8f6a-7abde038583c)
+
+`urls.py` berisi seluruh url yang ada dan django akan memilih url yang sesuai dengan request client, kemudian akan diteruskan ke `views.py`. View bisa berinteraksi dengan `models.py` untuk mendapatkan data /memodifikasi data yang dibutuhkan. Terakhir data tersebut 
+akan disajikan melalui template/berkas html kemudian direspons ke pengguna
+
 
 ## **NOMOR 3**
 
