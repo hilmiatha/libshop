@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from .models import Items
+from .models import Item
 
 # Create your tests here.
 class mainTest(TestCase):
@@ -12,7 +12,7 @@ class mainTest(TestCase):
         self.assertTemplateUsed(response, 'main.html')
     
     def setUp(self):
-        self.tesObj = Items.objects.create(
+        self.tesObj = Item.objects.create(
             name = "tes nama",
             price = 2,
             amount = 1,
@@ -22,7 +22,7 @@ class mainTest(TestCase):
     
         
     def test_model_method(self):
-        obj = Items.objects.get(id=self.tesObj.id)
+        obj = Item.objects.get(id=self.tesObj.id)
         self.assertEqual(obj.name, "tes nama")
         self.assertEqual(obj.amount, 1)
         self.assertEqual(obj.price, 2)
