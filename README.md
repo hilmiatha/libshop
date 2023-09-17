@@ -111,3 +111,27 @@ mengambil data dari Model dan mengubahnya menjadi format yang lebih mudah untuk 
 
 Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru yaitu tes model untuk mengecek apakah model yang dibuat bekerja dengan baik atau tidak
 
+
+
+# Tugas 3
+
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+
+   Di dalam django, form POST dan form GET memiliki peran yang berbeda
+   * Form GET digunakan untuk melakukan request terhadap database untuk meminta data tanpa mengubah isi/tidak ada efek samping. Cocok untuk pencarian, tampilan data, atau operasi baca.
+   * Form POST digunakan untuk mengirim data ke database/server untuk diolah sehingga mengubah isi/memiliki efek. Cocok untuk operasi penambahan, pembaruan, penghapusan, atau operasi yang memerlukan pengiriman
+     data yang kompleks.
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+   HTML merupakan struktur utama dalap web development, digunakan untuk mengatur bagaimana data ditampilkan atau halaman ditampilkan. Sedangkan XML dan JSON digunakan untuk pertukaran data dengan server.
+   JSON mudah untuk dibaca dan ditulis oleh manusia dan mudah untuk diurai dan dihasilkan oleh mesin. JSON memiliki sintaks yang lebih sederhana dibandingkan XML dan membutuhkan lebih sedikit teks untuk
+   menggambarkan data yang sama. JSON digunakan juga untuk integrasi dengan Javascript. Sedangkan XML  mengkodekan dokumen dalam format yang bisa dibaca oleh manusia dan mesin. XML sering digunakan dalam
+   aplikasi web untuk pertukaran data karena struktur hierarkinya yang jelas(tree)
+
+3.  Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+    JSON lebih mudah digunakan serta lebih mudah dibaca daripada XML. Tidak perlu tag , atribut, skema, dan lain - lain. JSON juga kompatibel dengan javascript sehingga lebih terintegrasi pada banyak web. JSON
+    juga mudah digunakan dengan bahasa lain sehingga lebih mudah untuk pertukaran data antar sistem
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
