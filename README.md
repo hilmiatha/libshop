@@ -135,3 +135,25 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
     juga mudah digunakan dengan bahasa lain sehingga lebih mudah untuk pertukaran data antar sistem
 
 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+
+  * HTML
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/be4c7d35-1de8-4ec0-a458-7a4d45b3e520)
+
+  * json
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/69da3f77-ae4c-4134-ad90-728db7ee4bc8)
+
+  * xml
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/3e08d384-ee5b-4006-89e2-1ad3e5a993e8)
+
+  * json by id
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/bac89058-8ff0-4eea-9d63-5e755c038b8e)
+
+  * xml by id
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/65a8d854-dc19-452d-8e1f-9e4929e30adb)
+
+
+
+
