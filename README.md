@@ -111,3 +111,49 @@ mengambil data dari Model dan mengubahnya menjadi format yang lebih mudah untuk 
 
 Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru yaitu tes model untuk mengecek apakah model yang dibuat bekerja dengan baik atau tidak
 
+
+
+# Tugas 3
+
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+
+   Di dalam django, form POST dan form GET memiliki peran yang berbeda
+   * Form GET digunakan untuk melakukan request terhadap database untuk meminta data tanpa mengubah isi/tidak ada efek samping. Cocok untuk pencarian, tampilan data, atau operasi baca.
+   * Form POST digunakan untuk mengirim data ke database/server untuk diolah sehingga mengubah isi/memiliki efek. Cocok untuk operasi penambahan, pembaruan, penghapusan, atau operasi yang memerlukan pengiriman
+     data yang kompleks.
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+   HTML merupakan struktur utama dalap web development, digunakan untuk mengatur bagaimana data ditampilkan atau halaman ditampilkan. Sedangkan XML dan JSON digunakan untuk pertukaran data dengan server.
+   JSON mudah untuk dibaca dan ditulis oleh manusia dan mudah untuk diurai dan dihasilkan oleh mesin. JSON memiliki sintaks yang lebih sederhana dibandingkan XML dan membutuhkan lebih sedikit teks untuk
+   menggambarkan data yang sama. JSON digunakan juga untuk integrasi dengan Javascript. Sedangkan XML  mengkodekan dokumen dalam format yang bisa dibaca oleh manusia dan mesin. XML sering digunakan dalam
+   aplikasi web untuk pertukaran data karena struktur hierarkinya yang jelas(tree)
+
+3.  Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+    JSON lebih mudah digunakan serta lebih mudah dibaca daripada XML. Tidak perlu tag , atribut, skema, dan lain - lain. JSON juga kompatibel dengan javascript sehingga lebih terintegrasi pada banyak web. JSON
+    juga mudah digunakan dengan bahasa lain sehingga lebih mudah untuk pertukaran data antar sistem
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+
+  * HTML
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/be4c7d35-1de8-4ec0-a458-7a4d45b3e520)
+
+  * json
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/69da3f77-ae4c-4134-ad90-728db7ee4bc8)
+
+  * xml
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/3e08d384-ee5b-4006-89e2-1ad3e5a993e8)
+
+  * json by id
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/bac89058-8ff0-4eea-9d63-5e755c038b8e)
+
+  * xml by id
+  ![image](https://github.com/hilmiatha/libshop/assets/108039453/65a8d854-dc19-452d-8e1f-9e4929e30adb)
+
+
+
+
