@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>{{ app_name }}</h1>
 
 <h5>Appname:</h5>
@@ -8,3 +11,45 @@
 
 <h5>Class:</h5>
 <p>{{ class }}</p> 
+
+<p>Anda ingin membeli sebanyak {{ jumlah_item }} buku pada aplikasi ini </p> 
+
+<style>
+     table th, table td {
+        padding-left: 20px; /* Add padding to the left for each cell */
+        padding-right: 20px; /* Add padding to the right for each cell */
+    }
+</style>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Genre</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for itm in item %}
+        <tr>
+            <td>{{itm.name}}</td>
+            <td>{{itm.price}}</td>
+            <td>{{itm.amount}}</td>
+            <td>{{itm.genre}}</td>
+            <td>{{itm.description}}</td>
+            <td>{{itm.date_added}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Tambahkan Bukumu!
+    </button>
+</a>
+
+{% endblock content %}
