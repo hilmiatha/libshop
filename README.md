@@ -189,7 +189,6 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
             ```
             ...
             path('', show_main, name='show_main'),
-            path('create-product', create_product, name='create_product'),
             ...
             ```
       * XML
