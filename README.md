@@ -136,8 +136,71 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
 
 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
+  * Membuat input form untuk menambahkan objek model pada app sebelumnya.
+    
+      * Membuat berkas `forms.py` pada direktori aplikasi `main`
+      * Membuat class `ProductForm` pada `forms.py` yang memiliki argumen `ModelForm`
+      * Di dalam class tersebut, di buat class `META` yang berisi model yang kita gunakan, padak konteks ini `model=Item`. Selain itu, berisi juga fields yang bisa diisi user yaitu
+        ` fields = ["name", "price", "description", "genre", "amount"]`
+      * Membuat fungsi create_product di dalam `views.py` yang menerima parameter request. Di dalam `create_product`, kita membuat sebuah `ProductForm` baru yang diisi dengan argumen `request.POST`
+        dalam bentuk `QueryDict`. Kemudian kita memvalidasi kontennya dengan menggunakan `form.is_valid()` dan menyimpan kontennya dengan menggunakan `form.save()`. Jika kontennya berhasil disimpan, kembali ke
+        halaman utama dengan menggunakan return `HttpResponseRedirect(reverse('main:show_main'))`. Fungsi tersebut akan menampilkan `create_product.html`.
+      * Mengubah `show_main` pada `views.py` dengan menambahkan kode `item = Item.objects.all()` untuk menampilkan data item yang ditambahkan dan kode `item_count = item.count()` untuk mendapatkan jumlah item
+        yang ada.
+      * Melakukan routing di `urls.py` pada direktori aplikasi `main` dengan menambahkan `path('create-product', create_product, name='create_product')` di `urlpatterns
+      * Membuat tampilan create_product dengan menambahkan `create_product.html` pada `templates` direktori aplikasi `main`. Isilah berkas HTML dengan kode yang sesuai untuk menampilkan form dalam bentuk
+        tabel, gunakan `{% csrf_token %}` untuk security, dan gunakan tag `<form method="POST">` untuk menandai formulir dengan metode POST.
+   
+  * Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+      * HTML sudah dijelaskan pada point pertama dan ditampilkan pada `main.html` yang fungsi `views.py`nya `show_main`
+      * XML
+          * Membuat fungsi `show_xml` pada `views.py` kemudian isi dengan kode dibawah agar data yang diambil pada objek model Item bisa direturn dalam format XML
+            ```
+            def show_xml(request):
+            data = Item.objects.all()
+            return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+            ```
+            Serializers digunakan untuk mentranslasikan objek model ke xml
+      * JSON
+          * Membuat fungsi `show_json` pada `views.py` kemudian isi dengan kode dibawah agar data yang diambil pada objek model Item bisa direturn dalam format JSON
+            ```
+            def show_json(request):
+            data = Item.objects.all()
+            return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+            ```
+            Serializers digunakan untuk mentranslasikan objek model ke json
+        * XML by ID
+            * Mengambil objek Item berdasarkan id dan direturn dalam format XML dengan menambahkan fungsi `show_xml_id` pada `views.py` dan menambahkan kode
+              ```
+              def show_xml_by_id(request, id):
+              data = Item.objects.filter(pk=id)
+              return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+              ```
+        * JSON by ID
+            * Mengambil objek Item berdasarkan id dan direturn dalam format json dengan menambahkan fungsi `show_json_id` pada `views.py` dan menambahkan kode
+              ```
+              def show_json_by_id(request, id):
+              data = Item.objects.filter(pk=id)
+              return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+              ```
+  * Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+      * HTML
+          * Sudah dilakukan routing pada `urls.py` direktori aplikasi `main` yaitu bagian
+            ```
+            ...
+            path('', show_main, name='show_main'),
+            ...
+            ```
+      * XML
+          * menambahkan routing pada `urls.py` pada direktori aplikasi `main` dengan kode `path('xml/', show_xml, name='show_xml'),` tepatnya di `urlpatterns`
+      * JSON
+          * menambahkan routing pada `urls.py` pada direktori aplikasi `main` dengan kode `path('json/', show_json, name='show_json'),` tepatnya di `urlpatterns`
+      * XML by ID
+          * menambahkan routing pada `urls.py` pada direktori aplikasi `main` dengan kode `path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),` tepatnya di `urlpatterns`
+      * JSON by ID
+          * menambahkan routing pada `urls.py` pada direktori aplikasi `main` dengan kode `path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),` tepatnya di `urlpatterns`
 
-5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+6. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
 
   * HTML
   ![image](https://github.com/hilmiatha/libshop/assets/108039453/be4c7d35-1de8-4ec0-a458-7a4d45b3e520)
@@ -153,6 +216,11 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
 
   * xml by id
   ![image](https://github.com/hilmiatha/libshop/assets/108039453/65a8d854-dc19-452d-8e1f-9e4929e30adb)
+
+7. Bonus
+
+   Saya telah menambahkan `item_count` pada fungsi `show_main` yang ada di `views.py` direktori aplikasi `main` untuk menyimpan jumlah buku/item yang sudah dibuat. kemudian ditambahkan di `context` dan
+   ditampilkan di `main.html`
 
 
 
