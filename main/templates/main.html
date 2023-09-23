@@ -32,14 +32,28 @@
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-    {% for itm in item %}
+    {% for item in items %}
         <tr>
-            <td>{{itm.name}}</td>
-            <td>{{itm.price}}</td>
-            <td>{{itm.amount}}</td>
-            <td>{{itm.genre}}</td>
-            <td>{{itm.description}}</td>
-            <td>{{itm.date_added}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.genre}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.date_added}}</td>
+            <td>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="increment" value="{{ item.id }}">
+                        Increment Amount
+                    </button>
+                    <button type="submit" name="decrement" value="{{ item.id }}">
+                        Decrease Amount
+                    </button>
+                    <button type="submit" name="delete" value="{{ item.id }}">
+                        Delete Item
+                    </button>
+                </form>
+            </td>
         </tr>
     {% endfor %}
 </table>
@@ -49,6 +63,11 @@
 <a href="{% url 'main:create_product' %}">
     <button>
         Tambahkan Bukumu!
+    </button>
+</a>
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
     </button>
 </a>
 
