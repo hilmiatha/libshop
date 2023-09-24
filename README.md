@@ -223,5 +223,216 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
    ditampilkan di `main.html`
 
 
+# Tugas 4
 
+1.  Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+    
+    * Django UserCreationForm merupakan built in form yang disediakan oleh Django untuk 
+      keperluan pembuatan akun pada web/aplikasi yang kita buat. Terdapat 3 field yaitu 
+      username, password, dan password confirmation. Kelebihan dari UserCreationForm adalah 
+      mudah digunakan dan diimplementasikan lalu memiliki validasi bawaan untuk memastikan
+      masukan dari user benar. Sedangkan kekurangannya adalah tampilan bawaannya default dan
+      kurang menarik dan memiliki batasan validasi data yang spesifik
+
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya 
+   penting?
+   
+   * Dalam konteks Django, autentikasi dan otorisasi adalah dua konsep yang berbeda. 
+     Autentikasi adalah proses verifikasi identitas pengguna, yaitu memastikan bahwa 
+     pengguna yang mencoba mengakses aplikasi adalah benar-benar pengguna yang terdaftar dan 
+     memiliki hak akses. Sedangkan otorisasi adalah proses memberikan hak akses kepada 
+     pengguna yang telah terautentikasi, yaitu menentukan apa yang dapat dilakukan oleh 
+     pengguna tersebut dalam aplikasi.Autentikasi dan otorisasi adalah dua prosesyang sangat 
+     penting yang digunakan oleh administrator untuk melindungi sistem dan informasi. 
+     Autentikasi memverifikasi identitas pengguna atau layanan, dan otorisasi menentukan hak 
+     akses mereka
+
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies 
+untuk mengelola data sesi pengguna?
+
+    *  Cookies adalah file kecil yang disimpan pada komputer pengguna oleh situs web yang   dikunjungi. Cookies digunakan untuk menyimpan informasi tentang pengguna dan preferensi mereka, seperti login, preferensi bahasa, dan riwayat pencarian. Dalam konteks aplikasi web, cookies digunakan untuk mengelola data sesi pengguna, yaitu informasi yang disimpan oleh server tentang pengguna selama mereka menggunakan aplikasi web.
+
+    * Django menggunakan cookies untuk mengelola data sesi pengguna dengan menyimpan session ID pada cookie. Ketika pengguna mengakses aplikasi web, Django akan membuat session ID baru dan menyimpannya pada cookie. Setiap kali pengguna melakukan permintaan ke server, session ID akan dikirimkan bersama permintaan tersebut. Server kemudian akan menggunakan session ID untuk mengambil data sesi pengguna dari penyimpanan server dan mengirimkannya kembali ke pengguna. Dengan menggunakan cookies, Django dapat mengelola data sesi pengguna dengan aman dan efisien.
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+
+    * Penggunaan cookies dalam pengembangan web memiliki risiko potensial yang harus diwaspadai. Cookies dapat digunakan untuk menyimpan informasi sensitif seperti login dan informasi kartu kredit, dan jika tidak diimplementasikan dengan benar, cookies dapat menjadi sumber kerentanan keamanan. Ada beberapa risiko potensial yang harus diwaspadai, seperti serangan cookie stealing, serangan XSS (Cross-Site Scripting), dan serangan CSRF (Cross-Site Request Forgery). Oleh karena itu, sangat penting untuk mengimplementasikan cookies dengan benar dan mengambil tindakan keamanan yang diperlukan untuk melindungi informasi sensitif pengguna. Beberapa tindakan keamanan yang dapat dilakukan termasuk mengenkripsi data cookies, menetapkan waktu kadaluwarsa yang tepat, dan memastikan bahwa cookies hanya digunakan pada koneksi yang aman. 
+
+5.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+  * Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+    * Membuat fungsi registrasi
+      * Di dalam `views.py` direktori aplikasi `main`, import beberapa library berikut
+        ```
+        from django.shortcuts import redirect
+        from django.contrib.auth.forms import UserCreationForm
+        from django.contrib import messages  
+        ```
+        membuat fungsi baru yaitu `register` yang meminta parameter request dan diisi dengan kode berikut
+        ```
+        def register(request):
+          form = UserCreationForm()
+
+          if request.method == "POST":
+              form = UserCreationForm(request.POST)
+              if form.is_valid():
+                  form.save()
+                  messages.success(request, 'Your account has been successfully created!')
+                  return redirect('main:login')
+          context = {'form':form}
+          return render(request, 'register.html', context)
+        ```
+        lalu pada direktori `template` pada direktori aplikasi `main` dibuat file `register.html` untuk membuat halaman yang akan ditampilkan saat register. Buat routing pada `urls,py` direktori aplikasi `main`
+    * Membuat fungsi login
+      * Di dalam `views.py` direktori aplikasi `main`, import beberapa library berikut
+        ```
+        from django.contrib.auth import authenticate, login 
+        ```
+        kemudian membuat fungsi baru `login_user` di `views.py` direktori aplikasi kemudian diisi dengan kode dibawah.
+        ```
+        def login_user(request):
+          if request.method == 'POST':
+              username = request.POST.get('username')
+              password = request.POST.get('password')
+              user = authenticate(request, username=username, password=password)
+              if user is not None:
+                  login(request, user)
+                  response = HttpResponseRedirect(reverse("main:show_main")) 
+                  response.set_cookie('last_login', str(datetime.datetime.now()))
+                  return response
+              else:
+                  messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+          context = {}
+          return render(request, 'login.html', context)
+        ```
+        maanfaatkan cookie dengan menambahkan line `response.set_cookie('last_login', str(datetime.datetime.now()))` saat user berhasil login dengan key `last_login` dan value tanggal login saat itu. Pada direktori `template` buat file `login.html` untuk membuat halaman yang akan ditampilkan saat register. Buat routing pada `urls.py` direktori aplikasi.
+    * membuat fungsi logout
+      * Di dalam `views.py` direktori aplikasi `main`, import beberapa library berikut
+        ```
+        from django.contrib.auth import logout
+        ```
+        kemudian membuat fungsi baru `logout_user` di `views.py` direktori aplikasi kemudian diisi dengan kode dibawah.
+        ```
+        def logout_user(request):
+          logout(request)
+          response = HttpResponseRedirect(reverse('main:login'))
+          response.delete_cookie('last_login')
+          return response
+        ```
+        dilakukan penghapusan cookie dengan key `last_login` saat user logout. kemudian membuat routing pada `urls.py` direktori aplikasi
+    * Restriksi akses aplikasi
+      * di dalam `views.py` import `login_required` dan tambahkan `@login_required(login_url='/login')` di atas fungsi `show_main`
+
+
+  * Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal. 
+    * lakukan register untuk 2 akun dan tambahkan 3 produk pada setiap akun. Tampilannya akan seperti di bawah
+      ![Alt text](image.png) 
+      ![Alt text](image-1.png) 
+  
+  * Menghubungkan model Item dengan User.
+    
+
+    di dalam `models.py` import user kemudian tambahkan `user = models.ForeignKey(User, on_delete=models.CASCADE)` di dalam class model `Item`. Ubah fungsi `create_product` dengan kode di bawah agar buku yang dibuat terasosiasi pada satu user
+    ```
+    def create_product(request):
+      form = ProductForm(request.POST or None)
+
+      if form.is_valid() and request.method == "POST":
+          product = form.save(commit=False)
+          product.user = request.user
+          product.save()
+          return HttpResponseRedirect(reverse('main:show_main'))
+    ...
+    ```
+  * Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+    * Menampilkan username pengguna
+
+      Pada fungsi `show_main` di `views.py` ubah isi context dengan key `'name'` menjadi
+      ```
+      'name': request.user.username,
+      ```
+    * menerapkan cookies last login
+
+      penerapan cookies sudah dijelaskan di atas dan untuk menampilkan last login, tambahkan kode di bawah pada context fungsi `show_main`
+      ```
+      'last_login': request.COOKIES['last_login'],
+      ```
+      lalu di `main.html` tambahkan kode
+      ```
+      <h5>Last login session: {{ last_login }}</h5>
+      ```
+    * tampilan
+
+      ![Alt text](image-2.png)
+
+6. Bonus
+
+  * Pada `views.py` tambahkan kode berikut pada fungsi `show_main`
+    
+    ```
+    def show_main(request):
+      items = Item.objects.filter(user=request.user)
+      if request.method == 'POST':
+          if 'increment' in request.POST:
+              item_id = request.POST.get('increment')
+              item = items.get(id=item_id)
+              item.amount += 1
+              item.save()
+              return HttpResponseRedirect(reverse('main:show_main'))
+          elif 'decrement' in request.POST:
+              item_id = request.POST.get('decrement')
+              item = items.get(id=item_id)
+              item.amount -= 1
+              item.save()
+              return HttpResponseRedirect(reverse('main:show_main'))
+          elif 'delete' in request.POST:
+              item_id = request.POST.get('delete')
+              item = items.get(id=item_id)
+              item.delete()
+              return HttpResponseRedirect(reverse('main:show_main'))
+    ...
+    ```
+  * kemudian pada `main.html` ubah tabel menjadi 
+    ```
+    <table>
+      <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>Genre</th>
+          <th>Description</th>
+          <th>Date Added</th>
+      </tr>
+
+      {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+      {% for item in items %}
+          <tr>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.amount}}</td>
+              <td>{{item.genre}}</td>
+              <td>{{item.description}}</td>
+              <td>{{item.date_added}}</td>
+              <td>
+                  <form method="post">
+                      {% csrf_token %}
+                      <button type="submit" name="increment" value="{{ item.id }}">
+                          Increment Amount
+                      </button>
+                      <button type="submit" name="decrement" value="{{ item.id }}">
+                          Decrease Amount
+                      </button>
+                      <button type="submit" name="delete" value="{{ item.id }}">
+                          Delete Item
+                      </button>
+                  </form>
+              </td>
+          </tr>
+      {% endfor %}
+    </table>
+    ```
+  dibuat tiga tombol yaitu increment, decrement dan delete item dengan request methot POST
+  
+      
+      
 
