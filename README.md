@@ -1,10 +1,14 @@
 ![books](https://images.alphacoders.com/132/1326370.png)
 # libshop
 Singkatan dari Library Shop
+# [Link menuju LibShop](https://libshop.adaptable.app/main/)
+
+<details>
+<summary> TUGAS 2 </summary>
 
 # Tugas 2 PBP 
 # **Hilmi Atha Putra (2206830050) - PBP B**
-# [Link menuju LibShop](https://libshop.adaptable.app/main/)
+
 
 Soal :
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -111,7 +115,10 @@ mengambil data dari Model dan mengubahnya menjadi format yang lebih mudah untuk 
 
 Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru yaitu tes model untuk mengecek apakah model yang dibuat bekerja dengan baik atau tidak
 
+</details>
 
+<details>
+<summary> TUGAS 3 </summary>
 
 # Tugas 3
 
@@ -222,6 +229,11 @@ Selain tes url dan template yang ada di Tutorial 1, saya menambahkan tes baru ya
    Saya telah menambahkan `item_count` pada fungsi `show_main` yang ada di `views.py` direktori aplikasi `main` untuk menyimpan jumlah buku/item yang sudah dibuat. kemudian ditambahkan di `context` dan
    ditampilkan di `main.html`
 
+</details>
+
+
+<details>
+<summary> TUGAS 4 </summary>
 
 # Tugas 4
 
@@ -432,6 +444,302 @@ untuk mengelola data sesi pengguna?
     </table>
     ```
   dibuat tiga tombol yaitu increment, decrement dan delete item dengan request methot POST
+
+</details>
+
+
+
+<details>
+<summary> TUGAS 5 </summary>
+
+  # Tugas 5
+
+  1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya. 
+      * Element selector adalah salah satu jenis selector di CSS yang digunakan untuk memilih elemen HTML berdasarkan nama tag-nya. Berikut adalah manfaat dari penggunaan element selector dan kapan waktu yang tepat untuk menggunakannya:
+
+          * Memilih semua elemen dengan tag yang sama Manfaat: Dapat digunakan untuk memberikan styling yang sama pada semua elemen dengan tag yang sama. Contoh: p { color: red; }
+
+          * Memilih elemen dengan tag tertentu yang berada di dalam elemen lain Manfaat: Dapat digunakan untuk memberikan styling pada elemen dengan tag tertentu yang berada di dalam elemen lain, tanpa mempengaruhi elemen dengan tag yang sama di luar elemen tersebut. Contoh: div p { color: blue; }
+
+          * Memilih elemen dengan tag tertentu yang memiliki class tertentu Manfaat: Dapat digunakan untuk memberikan styling pada elemen dengan tag tertentu yang memiliki class tertentu. Contoh: p.warning { color: orange; }
+
+          * Memilih elemen dengan tag tertentu yang memiliki ID tertentu Manfaat: Dapat digunakan untuk memberikan styling pada elemen dengan tag tertentu yang memiliki ID tertentu. Contoh: #header { background-color: gray; }
+
+      * Waktu yang tepat untuk menggunakan element selector adalah ketika kita ingin memberikan styling pada elemen HTML berdasarkan tag-nya. Namun, perlu diingat bahwa penggunaan selector yang terlalu spesifik dapat membuat kode CSS menjadi sulit untuk dipelihara. Oleh karena itu, sebaiknya gunakan selector yang paling sederhana dan spesifik yang memungkinkan untuk mencapai tujuan styling yang diinginkan.
+  
+  2. Jelaskan HTML5 Tag yang kamu ketahui.
+      * `<header>` - digunakan untuk menunjukkan bagian atas dari sebuah halaman web atau bagian atas dari sebuah bagian pada halaman web.
+      * `<nav>` - digunakan untuk menunjukkan bagian navigasi pada sebuah halaman web.
+      * `<section>` - digunakan untuk menunjukkan sebuah bagian pada sebuah halaman web.
+      * `<article>` - digunakan untuk menunjukkan sebuah artikel pada sebuah halaman web.
+      * `<aside>` - digunakan untuk menunjukkan sebuah bagian yang terkait dengan konten utama pada sebuah halaman web.
+      * `<footer>` - digunakan untuk menunjukkan bagian bawah dari sebuah halaman web atau bagian bawah dari sebuah bagian pada halaman web.
+  
+  3. Jelaskan perbedaan antara margin dan padding.
+      * Margin dan padding adalah dua konsep penting dalam CSS yang digunakan untuk mengatur tata letak dan tampilan elemen HTML. Berikut adalah perbedaan antara margin dan padding:
+
+          * Margin adalah ruang kosong di sekitar elemen HTML. Margin digunakan untuk memberikan jarak antara elemen HTML dengan elemen lain di sekitarnya. Margin dapat diatur dengan menggunakan properti CSS seperti margin-top, margin-bottom, margin-left, dan margin-right.
+
+          * Padding adalah ruang kosong di dalam elemen HTML, antara tepi elemen dan konten di dalamnya. Padding digunakan untuk memberikan jarak antara konten elemen HTML dengan tepi elemen tersebut. Padding dapat diatur dengan menggunakan properti CSS seperti padding-top, padding-bottom, padding-left, dan padding-right.
+
+      * Dalam hal penggunaannya, margin dan padding dapat digunakan untuk mencapai efek yang sama, yaitu memberikan jarak antara elemen HTML. Namun, perbedaan utama antara keduanya adalah bahwa margin memberikan jarak antara elemen HTML dengan elemen lain di sekitarnya, sedangkan padding memberikan jarak antara konten elemen HTML dengan tepi elemen tersebut.
+  
+  4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+      * Tailwind dan Bootstrap adalah dua framework CSS yang populer digunakan dalam pengembangan web. Berikut adalah perbedaan antara keduanya:
+
+        * Filosofi Desain
+
+          * Bootstrap memiliki filosofi desain yang lebih terstruktur dan konsisten. Bootstrap memiliki gaya desain yang lebih kaku dan lebih mudah diimplementasikan oleh pengembang yang tidak memiliki latar belakang desain yang kuat.
+          * Tailwind memiliki filosofi desain yang lebih fleksibel dan memberikan lebih banyak kebebasan dalam desain. Tailwind memungkinkan pengembang untuk membuat desain yang lebih unik dan kreatif.
+        * Ukuran File
+
+          * Bootstrap memiliki ukuran file yang lebih besar dibandingkan dengan Tailwind. Hal ini disebabkan oleh banyaknya fitur yang disediakan oleh Bootstrap.
+          * Tailwind memiliki ukuran file yang lebih kecil dibandingkan dengan Bootstrap. Hal ini disebabkan oleh pendekatan yang lebih modular dan fleksibel dalam penggunaan kelas-kelas CSS.
+        * Kustomisasi
+
+          * Bootstrap memiliki banyak tema dan template yang dapat digunakan untuk mempercepat proses pengembangan. Namun, kustomisasi yang lebih lanjut dapat menjadi sulit karena Bootstrap memiliki banyak aturan dan struktur yang harus diikuti.
+          * Tailwind memungkinkan pengembang untuk membuat desain yang lebih unik dan kreatif. Tailwind memberikan lebih banyak kebebasan dalam kustomisasi karena pengembang dapat membuat kelas-kelas CSS yang sesuai dengan kebutuhan mereka.
+        * Penggunaan
+
+          * Bootstrap lebih cocok digunakan untuk proyek-proyek yang membutuhkan desain yang konsisten dan mudah diimplementasikan. Bootstrap cocok digunakan untuk proyek-proyek yang membutuhkan waktu pengembangan yang cepat.
+          * Tailwind lebih cocok digunakan untuk proyek-proyek yang membutuhkan desain yang lebih unik dan kreatif. Tailwind cocok digunakan untuk proyek-proyek yang membutuhkan kustomisasi yang lebih lanjut dan fleksibilitas dalam penggunaan kelas-kelas CSS.
+      * Sebaiknya menggunakan Bootstrap jika  membutuhkan desain yang konsisten dan mudah diimplementasikan, serta membutuhkan waktu pengembangan yang cepat. Sebaliknya, sebaiknya menggunakan Tailwind jika  membutuhkan desain yang lebih unik dan kreatif, serta membutuhkan kustomisasi yang lebih lanjut dan fleksibilitas dalam penggunaan kelas-kelas CSS.
+  
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+  * Mengubah `base.html` dengan menambahkan kode di bawah untuk mengimplementasikan bootstrap 
+    ```
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        {% block meta %}
+        <title>Libshop</title>
+        <link rel="stylesheet" href="{% static 'css/output.css' %}">
+        {% endblock meta %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </head>
+    ```
+  * Kustomisasi tampilan login.html
+  ```
+  {% extends 'base.html' %}
+
+  {% block meta %}
+      <title>Login</title>
+  {% endblock meta %}
+
+  {% block content %}
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header"><h1>Login</h1></div>
+                  <div class="card-body">
+                      <form method="POST" action="">
+                          {% csrf_token %}
+                          <div class="form-group mb-3">
+                              <label for="username">Username:</label>
+                              <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                          </div>
+                          <div class="form-group mb-3">
+                              <label for="password">Password:</label>
+                              <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                          </div>
+                          <div class="form-group">
+                              <input class="btn btn-primary" type="submit" value="Login">
+                          </div>
+                      </form>
+                      {% if messages %}
+                          <ul class="list-group">
+                              {% for message in messages %}
+                                  <li class="list-group-item">{{ message }}</li>
+                              {% endfor %}
+                          </ul>
+                      {% endif %}
+                      <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endblock content %}
+
+  ```
+  Saya memanfaatkan bootstrap untuk tampilan login saya, saya memanfaatkan container `card` untuk menampilkan form login. 
+
+  * Kustomisasi tampilan laman register
+    ```
+    {% extends 'base.html' %}
+
+    {% block meta %}
+        <title>Register</title>
+    {% endblock meta %}
+
+    {% block content %}  
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header"><h1>Register</h1></div>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group mb-3">
+                                {{ form.username.label_tag }}
+                                {{ form.username }}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.email.label_tag }}
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.password1.label_tag }}
+                                {{ form.password1 }}
+                            </div>
+                            <div class="form-group mb-3">
+                                {{ form.password2.label_tag }}
+                                {{ form.password2 }}
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="btn btn-primary" type="submit" name="submit" value="Register">
+                            </div>
+                        </form>
+                        {% if messages %}
+                            <ul class="list-group">
+                                {% for message in messages %}
+                                    <li class="list-group-item">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    ```
+  Saya memanfaatkan bootstrap untuk tampilan register saya, saya memanfaatkan container `card` untuk menampilkan form login. 
+
+  * Kustomisasi laman menambah produk
+  ```
+  {% extends 'base.html' %}
+
+  {% block meta %}
+      <title>Add New Book</title>
+  {% endblock meta %}
+
+  {% block content %}
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header"><h1>Add New Book</h1></div>
+                  <div class="card-body">
+                      <form method="POST">
+                          {% csrf_token %}
+                          <table class="table">
+                              {{ form.as_table }}
+                              <tr>
+                                  <td></td>
+                                  <td>
+                                      <input class="btn btn-primary" type="submit" value="Add Book">
+                                      <a class="btn btn-secondary" href="{% url 'main:show_main' %}">Cancel</a>
+                                  </td>
+                              </tr>
+                          </table>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endblock content %}
+  ```
+  Saya memanfaatkan bootstrap untuk tampilan menambah produk saya, saya memanfaatkan container `card` untuk menampilkan form menambah produk. Saya juga menambahkan button cancel untuk kembali ke main apabila tidak jadi membuat buku baru.
+
+* Kustomisasi laman utama serta implementasi bonus
+```
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-4">
+    <style>
+        .last-item {
+            /* Warna background atau teks yang berbeda pada baris terakhir */
+            background-color: #00e1ff; /* Contoh warna background kuning */
+            color: #ffffff; /* Contoh warna teks hitam */
+        }
+    </style>    
+    <h1 class="mb-4">{{ app_name }}</h1>
+
+    <div class="mb-4">
+        <h5>Appname: {{ app_name }}</h5>
+        <h5>Name: {{ name }}</h5>
+        <h5>Class: {{ class }}</h5>
+        <p>Anda ingin membeli sebanyak {{ jumlah_item }} buku pada aplikasi ini </p>
+    </div>
+
+    {% for item in items %}
+    <div class="card mb-3 {% if forloop.last %}last-item{% endif %}">
+        <div class="card-header">
+            {{item.name}}
+        </div>
+        <div class="card-body">
+            <p><strong>Price:</strong> {{item.price}}</p>
+            <p><strong>Amount:</strong> {{item.amount}}</p>
+            <p><strong>Genre:</strong> {{item.genre}}</p>
+            <p><strong>Description:</strong> {{item.description}}</p>
+            <p><strong>Date Added:</strong> {{item.date_added}}</p>
+
+            <form method="post" class="mt-2">
+                {% csrf_token %}
+                <button type="submit" name="increment" value="{{ item.id }}" class="btn btn-success btn-sm">Increment Amount</button>
+                <button type="submit" name="decrement" value="{{ item.id }}" class="btn btn-warning btn-sm">Decrease Amount</button>
+                <button type="submit" name="delete" value="{{ item.id }}" class="btn btn-danger btn-sm">Delete Item</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="my-4">
+        <h5>Last login session: {{ last_login }}</h5>
+    </div>
+
+    <a href="{% url 'main:create_product' %}" class="btn btn-primary">Tambahkan Bukumu!</a>
+    <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+</div>
+{% endblock content %}
+```
+Saya memanfaatkan bootstrap untuk tampilan laman utama saya, saya memanfaatkan container `card` untuk menampilkan data produk. Saya juga menambahkan class `last-item` untuk memberikan warna background yang berbeda pada baris terakhir. saya memanfaatkan in-line style css untuk mengimplementasikan bonus yaitu pada kode
+```
+...
+<style>
+      .last-item {
+          /* Warna background atau teks yang berbeda pada baris terakhir */
+          background-color: #00e1ff; /* Contoh warna background kuning */
+          color: #ffffff; /* Contoh warna teks hitam */
+      }
+</style> 
+...
+```
+kemudian mengubah class item untuk memanfaatkan style last-item 
+```
+...
+<div class="card mb-3 {% if forloop.last %}last-item{% endif %}">
+...
+</div>
+```
+
+</details>
+
+
   
       
       

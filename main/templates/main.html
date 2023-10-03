@@ -1,76 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ app_name }}</h1>
+<div class="container my-4">
+    <style>
+        .last-item {
+            /* Warna background atau teks yang berbeda pada baris terakhir */
+            background-color: #00e1ff; /* Contoh warna background kuning */
+            color: #ffffff; /* Contoh warna teks hitam */
+        }
+    </style>    
+    <h1 class="mb-4">{{ app_name }}</h1>
 
-<h5>Appname:</h5>
-<p>{{ app_name }}</p>
-
-<h5>Name:</h5>
-<p>{{ name }}</p> 
-
-<h5>Class:</h5>
-<p>{{ class }}</p> 
-
-<p>Anda ingin membeli sebanyak {{ jumlah_item }} buku pada aplikasi ini </p> 
-
-<style>
-     table th, table td {
-        padding-left: 20px; /* Add padding to the left for each cell */
-        padding-right: 20px; /* Add padding to the right for each cell */
-    }
-</style>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Genre</th>
-        <th>Description</th>
-        <th>Date Added</th>
-    </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    <div class="mb-4">
+        <h5>Appname: {{ app_name }}</h5>
+        <h5>Name: {{ name }}</h5>
+        <h5>Class: {{ class }}</h5>
+        <p>Anda ingin membeli sebanyak {{ jumlah_item }} buku pada aplikasi ini </p>
+    </div>
 
     {% for item in items %}
-        <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.price}}</td>
-            <td>{{item.amount}}</td>
-            <td>{{item.genre}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.date_added}}</td>
-            <td>
-                <form method="post">
-                    {% csrf_token %}
-                    <button type="submit" name="increment" value="{{ item.id }}">
-                        Increment Amount
-                    </button>
-                    <button type="submit" name="decrement" value="{{ item.id }}">
-                        Decrease Amount
-                    </button>
-                    <button type="submit" name="delete" value="{{ item.id }}">
-                        Delete Item
-                    </button>
-                </form>
-            </td>
-        </tr>
+    <div class="card mb-3 {% if forloop.last %}last-item{% endif %}">
+        <div class="card-header">
+            {{item.name}}
+        </div>
+        <div class="card-body">
+            <p><strong>Price:</strong> {{item.price}}</p>
+            <p><strong>Amount:</strong> {{item.amount}}</p>
+            <p><strong>Genre:</strong> {{item.genre}}</p>
+            <p><strong>Description:</strong> {{item.description}}</p>
+            <p><strong>Date Added:</strong> {{item.date_added}}</p>
+
+            <form method="post" class="mt-2">
+                {% csrf_token %}
+                <button type="submit" name="increment" value="{{ item.id }}" class="btn btn-success btn-sm">Increment Amount</button>
+                <button type="submit" name="decrement" value="{{ item.id }}" class="btn btn-warning btn-sm">Decrease Amount</button>
+                <button type="submit" name="delete" value="{{ item.id }}" class="btn btn-danger btn-sm">Delete Item</button>
+            </form>
+        </div>
+    </div>
     {% endfor %}
-</table>
 
-<br />
+    <div class="my-4">
+        <h5>Last login session: {{ last_login }}</h5>
+    </div>
 
-<h5>Last login session: {{ last_login }}</h5>
-
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Tambahkan Bukumu!
-    </button>
-</a>
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
-
+    <a href="{% url 'main:create_product' %}" class="btn btn-primary">Tambahkan Bukumu!</a>
+    <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+</div>
 {% endblock content %}
