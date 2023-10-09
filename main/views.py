@@ -12,6 +12,9 @@ from django.contrib.auth import authenticate, login
 import datetime
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseNotFound
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -108,3 +111,27 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+
+
+def get_product_json(request):
+    product_item = Item.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        genre = request.POST.get("genre")
+        user = request.user
+
+        new_product = Item(name=name, price=price, description=description, user=user, amount = amount, genre = genre)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
