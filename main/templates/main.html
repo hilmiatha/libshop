@@ -108,8 +108,8 @@
                             <input type="hidden" name="csrfmiddlewaretoken" value="${csrfToken}">
                             <button type="submit" name="increment" value="${item.pk}" class="btn btn-success btn-sm">Increment Amount</button>
                             <button type="submit" name="decrement" value="${item.pk}" class="btn btn-warning btn-sm">Decrease Amount</button>
-                            <button type="submit" name="delete" value="${item.pk}" class="btn btn-danger btn-sm">Delete Item</button>
                         </form>
+                        <button name="delete" onclick="deleteForum(${item.pk})" class="btn btn-danger btn-sm">Delete Item</button>
                     </div>
                 </div>`;
         });
@@ -121,8 +121,7 @@
 
     function addProduct() {
         fetch("{% url 'main:add_product_ajax' %}", {
-            method: "POST",
-            body: new FormData(document.querySelector('#form'))
+            method: "DELETE",
         }).then(refreshProducts)
 
         document.getElementById("form").reset()
@@ -130,6 +129,15 @@
     }
 
     document.getElementById("button_add").onclick = addProduct
+
+    function deleteForum(id) {
+        fetch("{% url 'main:delete_product_ajax' product_id=0 %}".replace('0', id),{
+            method: "DELETE",
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
 
 
 
