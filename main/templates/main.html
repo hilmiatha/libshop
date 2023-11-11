@@ -14,7 +14,7 @@
         <h5>Appname: {{ app_name }}</h5>
         <h5>Name: {{ name }}</h5>
         <h5>Class: {{ class }}</h5>
-        <p>Anda ingin membeli sebanyak {{ jumlah_item }} buku pada aplikasi ini </p>
+        <p>Anda ingin membeli sebanyak <span id="counter"></span> buku pada aplikasi ini </p>
     </div>
 
     <div id="products_container"></div>
@@ -87,6 +87,8 @@
         container.innerHTML = "";  // Clear the current content.
         
         const products = await getProducts();
+
+        document.getElementById("counter").innerHTML = products.length;
         
         let htmlString = "";
         
@@ -121,7 +123,8 @@
 
     function addProduct() {
         fetch("{% url 'main:add_product_ajax' %}", {
-            method: "DELETE",
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
         }).then(refreshProducts)
 
         document.getElementById("form").reset()
