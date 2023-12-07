@@ -1,7 +1,7 @@
 ![books](https://images.alphacoders.com/132/1326370.png)
 # libshop
 Singkatan dari Library Shop
-# [Link menuju LibShop](https://libshop.adaptable.app/main/)
+# [Link menuju LibShop](http://hilmi-atha-tugas.pbp.cs.ui.ac.id/)
 
 <details>
 <summary> TUGAS 2 </summary>
